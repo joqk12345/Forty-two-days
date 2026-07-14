@@ -1,0 +1,23 @@
+body {
+  font-family: "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  line-height: 1.8;
+  margin: 5%;
+  text-align: justify;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 1.5em 0 2em;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  text-indent: 2em;
+}
+
+hr {
+  border: 0;
+  margin: 2em 0;
+  text-align: center;
+}
