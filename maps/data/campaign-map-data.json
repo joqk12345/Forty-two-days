@@ -1,0 +1,70 @@
+{
+  "title": "正德十四年宁王之乱战役路线",
+  "subtitle": "1519｜史料定位、现代坐标与不确定性分层图",
+  "regionalBounds": [115.42, 27.92, 117.18, 30.64],
+  "detailBounds": [115.72, 28.48, 116.20, 29.02],
+  "places": [
+    {"id":"zhangshu","name":"樟树镇","lon":115.53960,"lat":28.06437,"kind":"assembly","confidence":"located","source":"CHGIS hvd_19229 (1820)"},
+    {"id":"fengcheng","name":"丰城县","lon":115.78578,"lat":28.19775,"kind":"city","confidence":"located","source":"CHGIS hvd_41106 (1519)"},
+    {"id":"nanchang","name":"南昌府","lon":115.89772,"lat":28.67490,"kind":"city","confidence":"located","source":"CHGIS hvd_32593 (1519)"},
+    {"id":"qiaoshe","name":"樵舍","lon":115.97886,"lat":28.85644,"kind":"battle","confidence":"located-area","source":"CHGIS hvd_19231 (1820); hvd_140402 (1911)"},
+    {"id":"wucheng","name":"吴城镇","lon":115.99441,"lat":29.17683,"kind":"battle","confidence":"located","source":"CHGIS hvd_19164 (1820)"},
+    {"id":"nankang","name":"南康府","lon":116.04112,"lat":29.45349,"kind":"city","confidence":"located","source":"CHGIS hvd_32632 (1519)"},
+    {"id":"jiujiang","name":"九江府","lon":115.98568,"lat":29.72236,"kind":"city","confidence":"located","source":"CHGIS hvd_32608 (1519)"},
+    {"id":"hukou","name":"湖口县","lon":116.21802,"lat":29.73499,"kind":"city","confidence":"located","source":"CHGIS hvd_41153 (1519)"},
+    {"id":"raozhou","name":"饶州府","lon":116.66383,"lat":28.99417,"kind":"reference","confidence":"located","source":"CHGIS hvd_32621 (1519)"},
+    {"id":"anren","name":"安仁县（同名排除）","lon":116.90326,"lat":28.40443,"kind":"excluded","confidence":"located","source":"CHGIS hvd_41187 (1519)"},
+    {"id":"anqing","name":"安庆府","lon":117.03468,"lat":30.51229,"kind":"siege","confidence":"located","source":"CHGIS hvd_33505 (1519)"}
+  ],
+  "areas": [
+    {
+      "id":"huangjiadu",
+      "name":"黄家渡史料范围",
+      "center":[116.055,28.675],
+      "radius":[0.105,0.090],
+      "confidence":"range",
+      "note":"《读史方舆纪要》称南昌府东三十里、通余干；范围为制图检索带，不是战场边界。"
+    },
+    {
+      "id":"qiaoshe-battle",
+      "name":"樵舍战场水域未定",
+      "center":[115.97886,28.85644],
+      "radius":[0.060,0.050],
+      "confidence":"range",
+      "note":"镇名可定位，明代古河槽、驿址和火攻水面不能合并为同一点。"
+    },
+    {
+      "id":"ruanzijiang",
+      "name":"阮子江异文候选范围",
+      "center":[116.125,29.455],
+      "radius":[0.150,0.115],
+      "confidence":"hypothesis",
+      "note":"仅表示后出异文“罂子口”所指的鄱阳湖北部狭口；不得与奏疏“阮子江”直接画等号。"
+    }
+  ],
+  "routes": [
+    {
+      "id":"rebel-outbound",
+      "name":"宁王军东下",
+      "kind":"rebel",
+      "points":[[115.89772,28.67490],[115.99,29.05],[116.04112,29.45349],[115.98568,29.72236],[116.21802,29.73499],[116.55,30.08],[117.03468,30.51229]]
+    },
+    {
+      "id":"rebel-return",
+      "name":"解安庆后回师",
+      "kind":"return",
+      "points":[[117.03468,30.51229],[116.62,30.11],[116.21802,29.73499],[116.125,29.455],[115.99441,29.17683],[115.97886,28.85644]]
+    },
+    {
+      "id":"wang-north",
+      "name":"王守仁军北上攻南昌",
+      "kind":"government",
+      "points":[[115.53960,28.06437],[115.78578,28.19775],[115.84,28.43],[115.89772,28.67490]]
+    }
+  ],
+  "battleSequence": [
+    {"n":1,"name":"黄家渡","area":"huangjiadu","date":"七月二十四","status":"范围定位"},
+    {"n":2,"name":"八字脑","from":[116.015,28.755],"to":[115.990,28.820],"date":"七月二十四后退保","status":"只示次序，不落点"},
+    {"n":3,"name":"樵舍","area":"qiaoshe-battle","date":"七月二十五至二十六","status":"镇名定位；战场水域未定"}
+  ]
+}

@@ -21,3 +21,22 @@ hr {
   margin: 2em 0;
   text-align: center;
 }
+
+.campaign-map {
+  break-after: page;
+  page-break-after: always;
+  text-align: center;
+}
+
+.campaign-map p {
+  margin: 1em 0;
+  text-indent: 0;
+}
+
+.campaign-map img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-height: 85vh;
+  max-width: 100%;
+}
