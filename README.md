@@ -1,4 +1,4 @@
-# 《42天》
+# 《四十二天》
 
 《42天》是一部以正德十四年宁王之乱为背景的历史小说。故事围绕王守仁在兵力、信息与名义均不占优势的情况下，如何通过传檄、疑兵、反间、反攻南昌和湖上决战，一步步压缩朱宸濠的选择空间。
 
@@ -6,12 +6,12 @@
 
 ## 当前状态
 
-- 当前预出版版本：`0.2.0`。
+- 当前预出版版本：`0.3.0`。
 - 42章正文完整，约11.6万字符。
 - 第二稿已经完成结构去重、史实核验、称谓统一和全稿高频句式精修。
 - 主因果链、主要人物弧线、人数与火船数字链已经通过连续性检查。
-- 已生成含封面和战役地图的 EPUB：`build/42-days.epub`。
-- 已完成首轮核验：王守仁闻变地点与官职权限、宁王军水路、南昌七门攻城、安庆攻守，以及告变、捷报和献俘时间线。新一轮已核清黄家渡等地名的可定位边界、杭州交俘确日、南京受俘与通州处刑日次。
+- 已生成含封面、南昌城图、安庆守城图和战役地图的 EPUB：`build/42-days.epub`。
+- 已完成两轮核验：王守仁闻变地点与官职权限、宁王军水路、南昌七门攻城、安庆攻守，以及告变、捷报和献俘时间线；并补入王府宴礼/乐人/库藏、王府内官与厨役、南昌两县分辖与内河交通、战时粮运、夏旱与正文采用边界。
 
 最近一轮正文精修还完成了第11/21章县印回响重构、第30章主题解释删减，以及第38章宫人、近侍与护卫人数连续性修复。
 
@@ -23,11 +23,15 @@
 
 ```text
 drafts/                         42章正文
+epub/nanchang-city-map.md       EPUB 南昌城图前置页
+epub/anqing-defense-map.md      EPUB 安庆守城图前置页
 epub/campaign-map.md            EPUB 战役地图前置页
 maps/                           地图数据、制图说明与SVG/PDF/PNG产物
 source-ledger/                  高风险史实的来源卡与加工边界
 review-memos/                   阶段性审读和修订记录
 scripts/build-epub.sh           EPUB 构建脚本
+scripts/build-nanchang-city-map.mjs  南昌城图构建脚本
+scripts/build-anqing-defense-map.mjs 安庆守城图构建脚本
 scripts/build-map.mjs           战役地图构建脚本
 scripts/epub.css                EPUB 样式
 build/42-days.epub              当前构建产物
@@ -51,23 +55,25 @@ continuity-check.md             人物、物件、数字、路线连续性
 
 默认设置：
 
-- 书名：`42天`
+- 书名：`四十二天`
 - 作者：`kai.qiao`
 - 语言：`zh-CN`
 - 版本：读取根目录 `VERSION`
 - 正文：按文件名顺序读取 `drafts/chapter-*.md`
 - 封面：使用根目录的 `cover.png`，缺失时构建失败
-- 战役地图：使用 `maps/output/42-days-campaign-map.png`，置于正文之前
+- 南昌城图：使用 `maps/output/nanchang-city-1519.png`，置于正文之前
+- 安庆守城图：使用 `maps/output/anqing-defense-1519.png`，紧随南昌城图
+- 战役地图：使用 `maps/output/42-days-campaign-map.png`，紧随安庆守城图
 - 输出：`build/42-days.epub`
 
-构建结束后脚本会检查 EPUB 清单和页面，确认封面图片、封面页及战役地图页均已实际嵌入。
+构建结束后脚本会检查 EPUB 清单和页面，确认封面图片、封面页、南昌城图页、安庆守城图页及战役地图页均已实际嵌入。
 
 自定义示例：
 
 ```bash
 ./scripts/build-epub.sh \
   --author "作者名" \
-  --title "42天" \
+  --title "四十二天" \
   --cover cover.png \
   --map maps/output/42-days-campaign-map.png \
   --output build/42-days.epub
@@ -98,10 +104,13 @@ continuity-check.md             人物、物件、数字、路线连续性
 - 樵舍火攻、风向、火船规模与朱宸濠被擒过程。
 - 黄家渡、八字脑、樵舍、阮子江的历史方位与现代定位边界。
 - 杭州交俘、南京受俘、通州处刑及未果的午门献俘礼。
+- 宁王府生日宴、乐人、服色、库藏、承奉与厨役的制度边界。
+- 南昌府城的两县分辖、内河交通、河泊与渡口的采用边界。
+- 正德十四年南昌夏旱、全江西战时粮运与战后库空的史料边界。
 
 正文中的8条火船、12束火草、宁王金宝落入浅水等属于小说行动细节，不应作为史实引用。金宝名称有明代亲王制度依据，但现有材料未证实它随朱宸濠上船。正式出版前，在线古籍文本仍需与影印本或可靠点校本复核。
 
-已制作出版地图：`maps/output/42-days-campaign-map.svg`（矢量主文件）、PDF及4200像素PNG。地图采用CHGIS坐标，并以范围或路线次序表达黄家渡、八字脑、阮子江的不确定性。
+已制作三张出版地图：战役地图为 `maps/output/42-days-campaign-map.svg`（矢量主文件）、PDF及4200像素PNG，采用CHGIS坐标，并以范围或路线次序表达黄家渡、八字脑、阮子江的不确定性；南昌城图为 `maps/output/nanchang-city-1519.svg`，以示意布局说明王府夜宴与七门攻城的共同城市空间；安庆守城图为 `maps/output/anqing-defense-1519.svg`，说明云楼、天梯、填堑与守御动作。后两图均明确不作精确复原。
 
 ## 修订检查
 
@@ -117,4 +126,4 @@ unzip -t build/42-days.epub
 
 ## 版本记录
 
-当前版本为 `0.2.0`。项目变更见 [CHANGELOG.md](CHANGELOG.md)。
+当前版本为 `0.3.0`。项目变更见 [CHANGELOG.md](CHANGELOG.md)。

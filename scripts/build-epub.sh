@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-TITLE="42天"
+TITLE="四十二天"
 AUTHOR="kai.qiao"
 LANGUAGE="zh-CN"
 DRAFT_DIR="$PROJECT_DIR/drafts"
@@ -14,6 +14,10 @@ VERSION_FILE="$PROJECT_DIR/VERSION"
 CHANGELOG="$PROJECT_DIR/CHANGELOG.md"
 MAP="$PROJECT_DIR/maps/output/42-days-campaign-map.png"
 MAP_PAGE="$PROJECT_DIR/epub/campaign-map.md"
+CITY_MAP="$PROJECT_DIR/maps/output/nanchang-city-1519.png"
+CITY_MAP_PAGE="$PROJECT_DIR/epub/nanchang-city-map.md"
+ANQING_MAP="$PROJECT_DIR/maps/output/anqing-defense-1519.png"
+ANQING_MAP_PAGE="$PROJECT_DIR/epub/anqing-defense-map.md"
 COVER=""
 VERSION="0.0.0"
 RELEASE_DATE=""
@@ -38,11 +42,11 @@ usage() {
   cat <<'EOF'
 用法：scripts/build-epub.sh [选项]
 
-将战役地图和 drafts/chapter-*.md 按顺序合并为 EPUB，并嵌入封面。
+将南昌城图、安庆守城图、战役地图和 drafts/chapter-*.md 按顺序合并为 EPUB，并嵌入封面。
 
 选项：
   -o, --output FILE     输出文件（默认：build/42-days.epub）
-  -t, --title TITLE     书名（默认：42天）
+  -t, --title TITLE     书名（默认：四十二天）
   -a, --author AUTHOR   作者名（默认：kai.qiao）
   -c, --cover FILE      封面图片（默认使用项目根目录的 cover.png）
   -m, --map FILE        战役地图（默认使用 maps/output/42-days-campaign-map.png）
@@ -54,7 +58,7 @@ usage() {
   scripts/build-epub.sh
   scripts/build-epub.sh --author "作者名" --cover cover.jpg
   scripts/build-epub.sh --map maps/output/42-days-campaign-map.png
-  scripts/build-epub.sh -o build/novel.epub -t "42天"
+  scripts/build-epub.sh -o build/novel.epub -t "四十二天"
 EOF
 }
 
@@ -116,12 +120,16 @@ command -v unzip >/dev/null 2>&1 || die "未找到 unzip，无法验证 EPUB 内
 [[ -n "$VERSION" ]] || die "VERSION 文件内容为空"
 [[ -n "$COVER" && -f "$COVER" ]] || die "封面文件不存在：${COVER:-<未设置>}"
 [[ -f "$MAP" ]] || die "战役地图不存在：$MAP（请先运行 node scripts/build-map.mjs）"
+[[ -f "$CITY_MAP" ]] || die "南昌城图不存在：$CITY_MAP（请先运行 node scripts/build-nanchang-city-map.mjs）"
+[[ -f "$ANQING_MAP" ]] || die "安庆守城图不存在：$ANQING_MAP（请先运行 node scripts/build-anqing-defense-map.mjs）"
 [[ -f "$MAP_PAGE" ]] || die "地图前置页不存在：$MAP_PAGE"
+[[ -f "$CITY_MAP_PAGE" ]] || die "南昌城图前置页不存在：$CITY_MAP_PAGE"
+[[ -f "$ANQING_MAP_PAGE" ]] || die "安庆守城图前置页不存在：$ANQING_MAP_PAGE"
 
 # chapter-001.md 这样的补零命名可以保证 shell 展开顺序就是章节顺序。
 chapters=("$DRAFT_DIR"/chapter-*.md)
 [[ -e "${chapters[0]}" ]] || die "没有找到章节：$DRAFT_DIR/chapter-*.md"
-sources=("$MAP_PAGE" "${chapters[@]}")
+sources=("$CITY_MAP_PAGE" "$ANQING_MAP_PAGE" "$MAP_PAGE" "${chapters[@]}")
 
 mkdir -p "$(dirname "$OUTPUT")"
 
@@ -156,11 +164,15 @@ pandoc "${pandoc_args[@]}" "${sources[@]}"
 archive_entries="$(unzip -Z1 "$OUTPUT")"
 grep -q '^EPUB/text/cover.xhtml$' <<<"$archive_entries" || die "EPUB 缺少封面页"
 unzip -p "$OUTPUT" EPUB/content.opf | grep -q 'properties="cover-image"' || die "EPUB 清单缺少封面图片标记"
-unzip -p "$OUTPUT" EPUB/text/ch001.xhtml | grep -q 'id="campaign-map-image"' || die "EPUB 缺少战役地图页或地图图片"
-unzip -p "$OUTPUT" EPUB/nav.xhtml | grep -q 'text/ch001.xhtml#战役地图' || die "EPUB 目录缺少战役地图"
+unzip -p "$OUTPUT" EPUB/text/ch001.xhtml | grep -q 'id="nanchang-city-map-image"' || die "EPUB 缺少南昌城图页或地图图片"
+unzip -p "$OUTPUT" EPUB/text/ch002.xhtml | grep -q 'id="anqing-defense-map-image"' || die "EPUB 缺少安庆守城图页或地图图片"
+unzip -p "$OUTPUT" EPUB/text/ch003.xhtml | grep -q 'id="campaign-map-image"' || die "EPUB 缺少战役地图页或地图图片"
+unzip -p "$OUTPUT" EPUB/nav.xhtml | grep -q 'text/ch001.xhtml#南昌城图夜宴与攻城' || die "EPUB 目录缺少南昌城图"
+unzip -p "$OUTPUT" EPUB/nav.xhtml | grep -q 'text/ch002.xhtml#安庆守城图云楼天梯与守御' || die "EPUB 目录缺少安庆守城图"
+unzip -p "$OUTPUT" EPUB/nav.xhtml | grep -q 'text/ch003.xhtml#战役地图' || die "EPUB 目录缺少战役地图"
 
 echo "已生成：$OUTPUT"
 echo "版本：$VERSION"
 echo "章节数：${#chapters[@]}"
 echo "封面：已嵌入"
-echo "战役地图：已嵌入"
+echo "南昌城图、安庆守城图与战役地图：已嵌入"

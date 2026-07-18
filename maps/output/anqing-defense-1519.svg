@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1980" viewBox="0 0 1400 1980" role="img" aria-labelledby="title desc">
+  <title id="title">正德十四年安庆守城：云楼、天梯与守御</title>
+  <desc id="desc">安庆保卫战的叙事战术示意图，表现叛军云楼、天梯、填堑和守军飞楼、夜缒、投掷浸油苇束、运石等史料可核动作；城垣形制、方位和攻具数量均不作精确复原。</desc>
+  <defs>
+    <marker id="red-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#9d3b2e"/></marker>
+    <marker id="ink-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#5a4d3d"/></marker>
+    <pattern id="earth" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12L12 0" stroke="#b99766" stroke-width="2" opacity=".35"/></pattern>
+    <style><![CDATA[
+      svg{background:#f5f0e5;color:#29251f;font-family:"Noto Serif CJK SC","Source Han Serif SC","Songti SC",serif}.frame{fill:#faf6ec;stroke:#a99b84;stroke-width:1.5}.wall{fill:#e6ddcd;stroke:#4f463a;stroke-width:9;stroke-linejoin:round}.wall-top{stroke:#705f4b;stroke-width:4}.moat{fill:#c9e0e1;stroke:#60969d;stroke-width:4}.field{fill:#eee6d5}.earth{fill:url(#earth);stroke:#ad8a58;stroke-width:3}.tower{fill:#b88b51;stroke:#644e30;stroke-width:4}.ladder{stroke:#8e6c43;stroke-width:9;stroke-linecap:round}.rung{stroke:#8e6c43;stroke-width:4}.siege{fill:#906244;stroke:#593d2a;stroke-width:4}.straw{stroke:#b36c30;stroke-width:12;stroke-linecap:round}.fire{fill:#be542e;stroke:#7d3421;stroke-width:3}.stone{fill:#777066;stroke:#4a443c;stroke-width:2}.rope{fill:none;stroke:#6d5940;stroke-width:4;stroke-dasharray:8 7;marker-end:url(#ink-arrow)}.attack{fill:none;stroke:#9d3b2e;stroke-width:7;stroke-linecap:round;marker-end:url(#red-arrow)}.callout{fill:none;stroke:#826f56;stroke-width:3;stroke-dasharray:7 7;marker-end:url(#ink-arrow)}.panel-title{font-size:28px;font-weight:700;letter-spacing:.08em}.label{font-size:27px;font-weight:700;paint-order:stroke;stroke:#faf6ec;stroke-width:8;stroke-linejoin:round}.small{font-size:21px;fill:#554b3f}.tiny{font-size:18px;fill:#554b3f}.note{font-size:20px;fill:#544b40}.number{fill:#9d3b2e;stroke:#faf6ec;stroke-width:4}.number-text{fill:white;font-family:system-ui,sans-serif;font-size:18px;font-weight:800;text-anchor:middle;dominant-baseline:central}
+    ]]></style>
+  </defs>
+  <rect width="1400" height="1980" fill="#f5f0e5"/>
+  <text x="72" y="92" font-size="50" font-weight="750" letter-spacing=".04em">正德十四年安庆守城：云楼、天梯与守御</text>
+  <text x="74" y="140" font-size="24" fill="#655c50">叙事战术示意图｜守御动作可核；城垣方位、攻具数量与距离不作精确复原</text>
+  <line x1="72" y1="176" x2="1328" y2="176" stroke="#51483d" stroke-width="2"/>
+
+  <rect class="frame" x="72" y="214" width="900" height="1265"/><text class="panel-title" x="96" y="258">围城与守御的动作链</text>
+  <rect class="field" x="96" y="288" width="852" height="1148"/>
+  <path class="moat" d="M146,625 L890,625 L890,755 L146,755 Z"/>
+  <path class="wall" d="M130,465 L220,420 L330,465 L440,420 L550,465 L660,420 L770,465 L900,420 L900,625 L130,625 Z"/>
+  <path class="wall-top" d="M130,560 L900,560"/>
+  <path class="wall-top" d="M184,465 L184,510 M274,465 L274,510 M384,465 L384,510 M494,465 L494,510 M604,465 L604,510 M714,465 L714,510 M824,465 L824,510"/>
+  <text class="label" x="515" y="535" text-anchor="middle">安庆城垣（关系示意）</text>
+  <text class="tiny" x="515" y="586" text-anchor="middle">杨锐、张文锦、崔文等分守城防；军卫卒少，以民兵与民夫相助</text>
+
+  <path class="earth" d="M280,755 L690,755 L740,890 L235,890 Z"/><text class="small" x="488" y="838" text-anchor="middle">运土填堑（七月十六日）</text>
+  <path class="attack" d="M487,1022 L487,904"/><text x="508" y="982" class="small" fill="#8a3429">叛军逼城</text>
+  <g transform="translate(688 890)"><rect class="siege" x="0" y="0" width="132" height="180"/><path class="siege" d="M-25,0 L66,-72 L157,0 Z"/><rect fill="#e1c28d" x="31" y="48" width="26" height="38"/><rect fill="#e1c28d" x="75" y="48" width="26" height="38"/><circle fill="#4c3a2c" cx="30" cy="184" r="17"/><circle fill="#4c3a2c" cx="103" cy="184" r="17"/></g><text class="label" x="755" y="1106" text-anchor="middle">云楼</text><text class="tiny" x="755" y="1132" text-anchor="middle">数十：史料称量词</text>
+  <g transform="translate(210 872) rotate(-20)"><line class="ladder" x1="0" y1="270" x2="0" y2="0"/><line class="ladder" x1="72" y1="270" x2="72" y2="0"/><line class="rung" x1="0" y1="30" x2="72" y2="30"/><line class="rung" x1="0" y1="75" x2="72" y2="75"/><line class="rung" x1="0" y1="120" x2="72" y2="120"/><line class="rung" x1="0" y1="165" x2="72" y2="165"/><line class="rung" x1="0" y1="210" x2="72" y2="210"/><line class="rung" x1="0" y1="255" x2="72" y2="255"/></g><text class="label" x="245" y="1162" text-anchor="middle">巨型天梯</text><path class="attack" d="M295,1060 L338,760"/>
+
+  <g transform="translate(404 394)"><rect class="tower" x="0" y="0" width="110" height="118"/><path d="M-15,0 L55,-50 L125,0 Z" fill="#874331"/><rect fill="#f3d99b" x="22" y="42" width="22" height="32"/><rect fill="#f3d99b" x="66" y="42" width="22" height="32"/></g><text class="small" x="458" y="330" text-anchor="middle">守军飞楼</text>
+  <path class="rope" d="M560,505 C600,615 622,682 655,748"/><text class="small" x="610" y="686">夜缒焚楼</text>
+  <g transform="translate(300 612)"><line class="straw" x1="0" y1="0" x2="46" y2="18"/><line class="straw" x1="8" y1="21" x2="50" y2="-4"/><path class="fire" d="M56,10 C44,-6 67,-30 78,-9 C89,-25 106,-3 91,15 C82,26 63,26 56,10 Z"/></g><path class="attack" d="M345,632 L300,858"/><text class="small" x="170" y="660">投掷浸油点燃苇束</text>
+  <g transform="translate(726 598)"><ellipse class="stone" cx="0" cy="0" rx="16" ry="12"/><ellipse class="stone" cx="42" cy="12" rx="14" ry="11"/><ellipse class="stone" cx="76" cy="-4" rx="18" ry="13"/></g><path class="attack" d="M775,607 L745,788"/><text class="small" x="786" y="576">投石、沸汤</text>
+  <path class="callout" d="M160,1260 C336,1286 520,1286 720,1245"/><text class="note" x="152" y="1335">老弱妇女馈饷、运石；夜间出城劫营与射书劝散</text>
+  <text class="tiny" x="152" y="1365">这些行动均有史料记载；本图不主张各动作发生在同一时刻或同一段城墙。</text>
+
+  <rect class="frame" x="1004" y="214" width="324" height="1265"/><text class="panel-title" x="1032" y="258">读图说明</text>
+  <circle class="number" cx="1045" cy="312" r="15"/><text class="number-text" x="1045" y="312">1</text><text class="small" x="1074" y="320">围城压力</text><text class="tiny" x="1032" y="352"><tspan x="1032" dy="0">云楼、天梯、填堑；</tspan><tspan x="1032" dy="24">守军兵少而民力补入。</tspan></text>
+  <circle class="number" cx="1045" cy="430" r="15"/><text class="number-text" x="1045" y="430">2</text><text class="small" x="1074" y="438">守御不是单一动作</text><text class="tiny" x="1032" y="470"><tspan x="1032" dy="0">对射、夜缒、焚楼、</tspan><tspan x="1032" dy="24">焚梯、投石、劝散。</tspan></text>
+  <circle class="number" cx="1045" cy="548" r="15"/><text class="number-text" x="1045" y="548">3</text><text class="small" x="1074" y="556">解围的因果</text><text class="tiny" x="1032" y="588"><tspan x="1032" dy="0">南昌告急，宸濠解围；</tspan><tspan x="1032" dy="24">崔文出城追击。</tspan></text>
+  <text class="panel-title" x="1032" y="700">图例与精度</text><rect x="1032" y="740" width="36" height="22" class="wall"/><text class="small" x="1080" y="758">城垣：关系示意</text><rect x="1032" y="782" width="36" height="22" class="earth"/><text class="small" x="1080" y="800">土堑：可核动作</text><path d="M1032,842 L1068,842" class="attack"/><text class="small" x="1080" y="850">红箭：攻守动作</text><rect x="1032" y="878" width="36" height="22" class="siege"/><text class="small" x="1080" y="896">云楼、天梯：可核</text>
+  <text class="tiny" x="1032" y="944"><tspan x="1032" dy="0">不表示城门、城垣、</tspan><tspan x="1032" dy="24">壕堑、攻具、军营的</tspan><tspan x="1032" dy="24">精确方位、数量或比例。</tspan></text>
+  <text class="panel-title" x="1032" y="1065">写作提示</text><text class="tiny" x="1032" y="1107"><tspan x="1032" dy="0">守城：石、汤、火、绳</tspan><tspan x="1032" dy="24">民力：馈饷、运石、传报</tspan><tspan x="1032" dy="24">敌方：填堑、云楼、天梯</tspan><tspan x="1032" dy="32">不写炮裂城墙；不把</tspan><tspan x="1032" dy="24">浸油苇束误成泼火油。</tspan></text>
+
+  <line x1="72" y1="1538" x2="1328" y2="1538" stroke="#8c806f" stroke-width="1.5"/><text x="72" y="1588" font-size="32" font-weight="700">图例说明</text>
+  <text class="note" x="72" y="1634"><tspan x="72" dy="0">杨锐、张文锦、崔文等守将，军卫卒少、民兵与民夫参与，云楼、天梯、飞楼、夜缒焚楼、浸油苇束焚梯、投石沸汤、夜劫与射书：〈明史·杨锐传〉。</tspan><tspan x="72" dy="32">七月十六日宸濠督兵夫运土填堑、次日因南昌告急而解围：王守仁〈擒获宸濠捷音疏〉。图中将多种守御动作并列，仅为解释守城机制，不表示同时发生。</tspan><tspan x="72" dy="32">本图服务于安庆守城段落：城防能够拖住叛军，却不替代南昌失守对战局的决定性影响。</tspan></text>
+  <text class="tiny" x="72" y="1770">资料与边界：source-ledger/anqing-defense.md、material-world-1519.md、battle-geography.md。</text><text class="tiny" x="1328" y="1770" text-anchor="end">《四十二天》项目｜示意图｜2026-07-18</text>
+</svg>
