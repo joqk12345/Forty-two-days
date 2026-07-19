@@ -135,7 +135,7 @@ mkdir -p "$(dirname "$OUTPUT")"
 
 pandoc_args=(
   --quiet
-  --from=markdown
+  --from=markdown+hard_line_breaks
   --to=epub3
   --output="$OUTPUT"
   --metadata="title=$TITLE"
@@ -170,6 +170,9 @@ unzip -p "$OUTPUT" EPUB/text/ch003.xhtml | grep -q 'id="campaign-map-image"' || 
 unzip -p "$OUTPUT" EPUB/nav.xhtml | grep -q 'text/ch001.xhtml#南昌城图夜宴与攻城' || die "EPUB 目录缺少南昌城图"
 unzip -p "$OUTPUT" EPUB/nav.xhtml | grep -q 'text/ch002.xhtml#安庆守城图云楼天梯与守御' || die "EPUB 目录缺少安庆守城图"
 unzip -p "$OUTPUT" EPUB/nav.xhtml | grep -q 'text/ch003.xhtml#战役地图' || die "EPUB 目录缺少战役地图"
+
+poem_breaks="$(unzip -p "$OUTPUT" EPUB/text/ch*.xhtml | grep -o '<br />' | wc -l | tr -d ' ')"
+[[ "$poem_breaks" -ge 126 ]] || die "EPUB 章首诗缺少换行（检测到 ${poem_breaks:-0} 个换行，预期至少126个）"
 
 echo "已生成：$OUTPUT"
 echo "版本：$VERSION"

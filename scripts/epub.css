@@ -11,6 +11,13 @@ h1 {
   text-align: center;
 }
 
+/* 每章标题后的首段是章首诗。保留诗行换行，并与正文拉开层次。 */
+section.level1 > p:first-of-type {
+  margin: 1em 0 2em;
+  text-align: center;
+  text-indent: 0;
+}
+
 p {
   margin: 0;
   text-indent: 2em;
